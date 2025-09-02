@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Botón con lista desplegable</title>
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropbtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content li {
+    list-style: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
+  .dropdown-content li:hover {
+    background-color: #ddd;
+  }
+
+  .show {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="dropdown">
+  <button onclick="toggleDropdown()" class="dropbtn">Opciones</button>
+  <ul id="myDropdown" class="dropdown-content">
+    <li>Opción 1</li>
+    <li>Opción 2</li>
+    <li>Opción 3</li>
+  </ul>
+</div>
+
+<script>
+function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Cerrar la lista si se hace clic fuera del botón
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (const dropdown of dropdowns) {
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
